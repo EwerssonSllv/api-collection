@@ -1,59 +1,62 @@
 # Kotlin API Collections - Study Guide
 
-This repository contains examples and explanations of various Kotlin collections, including `Array`, `DoubleArray`, `IntArray`, `List`, `Map`, `Set`, and common operations on them.
+This repository provides an overview of Kotlin collections, mutable collections, and extension functions. It covers the main types and operations that are essential for working efficiently with collections in Kotlin.
 
 ## Contents
 
-- [Arrays](#arrays)
-  - [String Array](#string-array)
-  - [Int Array](#int-array)
-  - [Double Array](#double-array)
-- [List](#list)
-- [Map](#map)
-- [Set](#set)
-- [Operations](#operations)
+- Collections
+- Mutable Collections
+- Extension Functions
+- Common Operations
 
----
+## Collections
 
-### Arrays
-
-#### String Array
-
-An array that holds string values.
+Kotlin offers immutable collections by default, meaning that once initialized, their content cannot be changed. Examples include `List`, `Set`, and `Map`.
 
 ```kotlin
+val list = listOf("Apple", "Banana", "Orange")
+val set = setOf(1, 2, 3)
+val map = mapOf("key1" to "value1", "key2" to "value2")
+```
 
-fun main() {
-    // String Array
-    val stringArray = arrayOf("Kotlin", "Java", "Python")
-    println("String Array: " + stringArray.joinToString())  // Output: Kotlin, Java, Python
 
-    // Int Array
-    val intArray = intArrayOf(1, 2, 3, 4)
-    println("Int Array: " + intArray.joinToString())  // Output: 1, 2, 3, 4
+## Mutable Collections 
 
-    // Double Array
-    val doubleArray = doubleArrayOf(1.1, 2.2, 3.3)
-    println("Double Array: " + doubleArray.joinToString())  // Output: 1.1, 2.2, 3.3
+Mutable collections allow modification after initialization. This includes mutable versions of List, Set, and Map.
 
-    // List
-    val list = listOf("Kotlin", "Java", "C++")
-    println("List: " + list)  // Output: [Kotlin, Java, C++]
+```kotlin
+val mutableList = mutableListOf("Dog", "Cat")
+mutableList.add("Horse")
 
-    // Map
-    val map = mapOf(1 to "One", 2 to "Two", 3 to "Three")
-    println("Map: " + map)  // Output: {1=One, 2=Two, 3=Three}
+val mutableSet = mutableSetOf(4, 5, 6)
+mutableSet.add(7)
 
-    // Set
-    val set = setOf(1, 2, 3, 3)
-    println("Set: " + set)  // Output: [1, 2, 3]
+val mutableMap = mutableMapOf("keyA" to "valueA")
+mutableMap["keyB"] = "valueB"
+```
 
-    // Operations - Filter even numbers
-    val numbers = listOf(1, 2, 3, 4, 5)
-    val evens = numbers.filter { it % 2 == 0 }
-    println("Filtered (evens): " + evens)  // Output: [2, 4]
+## Extensions Functions
 
-    // Operations - Double each number
-    val doubled = numbers.map { it * 2 }
-    println("Doubled: " + doubled)  // Output: [2, 4, 6, 8, 10]
-}
+Extension functions in Kotlin allow us to add new functionality to existing types. They are especially useful when working with collections.
+
+```kotlin
+// Filtering a list
+val numbers = listOf(1, 2, 3, 4, 5)
+val evenNumbers = numbers.filter { it % 2 == 0 }  // [2, 4]
+
+// Mapping values
+val doubled = numbers.map { it * 2 }  // [2, 4, 6, 8, 10]
+
+// Sorting
+val sorted = numbers.sortedDescending()  // [5, 4, 3, 2, 1]
+```
+
+## Common Operations
+
+Kotlin collections support a wide range of operations such as adding, removing, filtering, mapping, and sorting elements.
+
+- add: Adds an element to a collection
+- remove: Removes an element
+- filter: Returns a collection of elements that match a condition
+- map: Transforms each element in a collection
+- sorted: Sorts a collection in ascending or descending order
