@@ -1,3 +1,5 @@
+package collections
+
 fun main(){
     val salaries = DoubleArray(3)
 
